@@ -21,4 +21,4 @@ Ran the NextJs install command again, and chose
 - YES for App Router
 - No for import Alias
 
-Successful install!
+Successful install! be careful of a nested project directory.
