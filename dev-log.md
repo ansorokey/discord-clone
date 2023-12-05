@@ -79,3 +79,16 @@ This button is now installed, and in the components folder is a ui dir with a fu
 `import { Button } from "@/components/ui/button";`
 And use it
 `<Button>Click Me</Button>`
+
+Installed the simple react snippets extension. ffc now gives us a quick component setup.
+
+Now we can add routes. To do so, create a page directory in the app folder. Add a `page.tsx` file. Create the page in this file.
+To reach a route, all we have to do is add the nae of that directory to the end of the url
+`localhost:3000/test`
+
+if we just want a directory for organization, we name that dir between ()
+`(auth)` and then add related routes inside it. We can still access the routes in that folder by adding the route name at the end.
+`(auth)/login/`
+`localhost:3000/login`
+This just clears up clutter in our project.
+Additionally, we can add a `layout.tsx` file to the root of that directory. All routes that are children of that dir will inherit styles and layouts from this file. same sidebar, color, alignmet, etc. Again, the name of the organizational folder does not affect the page/route name
