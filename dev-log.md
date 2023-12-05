@@ -92,3 +92,5 @@ if we just want a directory for organization, we name that dir between ()
 `localhost:3000/login`
 This just clears up clutter in our project.
 Additionally, we can add a `layout.tsx` file to the root of that directory. All routes that are children of that dir will inherit styles and layouts from this file. same sidebar, color, alignmet, etc. Again, the name of the organizational folder does not affect the page/route name
+
+Moved the `page.tsx` main file into the `/app/(main)/(routes)/` dir
