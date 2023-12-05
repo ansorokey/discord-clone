@@ -94,3 +94,35 @@ This just clears up clutter in our project.
 Additionally, we can add a `layout.tsx` file to the root of that directory. All routes that are children of that dir will inherit styles and layouts from this file. same sidebar, color, alignmet, etc. Again, the name of the organizational folder does not affect the page/route name
 
 Moved the `page.tsx` main file into the `/app/(main)/(routes)/` dir
+
+Added .env to the .gitignore file
+Created a [clerk.com](clerk.com) account
+Created a new application with email and google sign in options
+Added the generated keys to a root level .env file
+continue to [docs](https://clerk.com/docs/quickstarts/nextjs?_gl=1*th85ne*_gcl_au*MTM0NjE0NDIwMS4xNzAxNzM4Njk0*_ga*MTg1ODAyOTgwLjE3MDE3Mzg2OTQ.*_ga_1WMF5X234K*MTcwMTczODY5NC4xLjEuMTcwMTczODgzNi4wLjAuMA..)
+
+installed clerk package
+`npm install @clerk/nextjs`
+Wrap the main layout route in the clerk provider
+
+Now we create the following directory
+`/app/(auth)/(routes)/sign-up/[[...sign-up]]/page.tsx`
+This allows the clerk authenticator to work with our routes
+
+Create a sign in and signup page (  I used clerk's [default](https://clerk.com/docs/references/nextjs/custom-signup-signin-pages) )
+
+Paste some default clerk routes into the .env
+
+AND NOW WE HAVE A GOOGLE SIGN UP PAGE??? That was cool and easy!
+Now, trying to navigate un-authenticated redirects you right back to the auth pages. now we need a way to logout.
+Imported and used the UserButton component.
+
+Trying to run again causes an error
+```
+ ⨯ ./node_modules/@clerk/shared/dist/react/index.mjs
+Attempted import error: 'SWRConfig' is not exported from 'swr' (imported as 'SWRConfig').
+```
+
+This was a quick and silly fix, I was importing from the wrong library (react instead of nextjs)
+
+Signing in, up, and out now works! Hit a little snag where using the `afterSignOutUrl="/"` di dnot display the auth modal, so I changed it to "/sign-in" and it works perfectly. May change later.
