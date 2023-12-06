@@ -40,3 +40,10 @@ now lets install the prisma client
 `npm i @prisma/client`
 
 After doing some setup that will find a user's server or invite them to open a server, we can run `npx prisma studio` to view the current database. Really cool!
+
+Onto server creation. If the user logs in and they aren't a part of any servers, ask them to make one. Display a server creation modal. Grab the modal from shadcn
+- [Dialog](https://ui.shadcn.com/docs/components/dialog)
+- [Input](https://ui.shadcn.com/docs/components/input)
+- [React Hook Form](https://ui.shadcn.com/docs/components/form)
+
+Let's make a new dir to store all our modals
