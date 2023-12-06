@@ -18,6 +18,7 @@ model Profile {
   createdAt DateTime @default(now())
   updatedAT DateTime @updatedAt
 
+  // a profile belongs to many Model[] (it's an array)
   servers Server[]
   members Member[]
   channels Channel[]
@@ -29,6 +30,7 @@ model Server {
   imageUrl String @db.Text
   inviteCode String @db.Text
 
+  // a server belongs to a profile
   profileId String
   profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
 

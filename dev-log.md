@@ -31,3 +31,12 @@ What is prisma?
 `npm i -D prisma`
 `npx prisma init`
 This will add itself to the project, and fill out the env. We need to replace the default database location with our own. We will use [planetscale](https://app.planetscale.com/)
+
+Defined a bunch of models in the prisma schema. Whenever the schema is modified, we need to run:
+`npx prisma generate` to add schema to node modules
+`npx prisma db push` creates the schemas in planetscale/whatever database
+
+now lets install the prisma client
+`npm i @prisma/client`
+
+After doing some setup that will find a user's server or invite them to open a server, we can run `npx prisma studio` to view the current database. Really cool!
