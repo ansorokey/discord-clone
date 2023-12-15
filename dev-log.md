@@ -1,49 +1,11 @@
-## Day 2
+## Day 3
 
-To get a light and dark mode set up, we'll install a package called `next-themes`
-`npm i next-themes`
+Moving on to image uploading.
+We'll be using [uploadthing.com](uploadthing.com) for this project
 
-Check out the [shadcn documentation](https://ui.shadcn.com/docs/dark-mode/next) and create a theme provider
-Wrap that provider around the children of the root layout
-Add the suppressHydrationWarning attribute to the html component of the layout
+Create a new app, and grab our secret keys.
+Check out the getting started guide in the docs. We'll need to install some packages
+`npm install uploadthing @uploadthing/react`
+The tutorial install include `react-dropzone`, but this is not listed with the current docs, so we'll leave it out for now and come back to it if needed in the future.
 
-Side note: I keep running 'nvm install 18' to change the node version to 18+
-I need to find a way to change it globally.
-And so I did!
-Changed the default node version using
-`nvm alias default v21.4.0`
-Now any new shell will start with this version
-
-Now that we have a dark and light mode, let's add a toggle button.
-
-When we import the code for that toggle button, we can see we're missing the dropdown menu component. Do a quick install of that and add it as a component
-`npx shadcn-ui@latest add dropdown-menu`
-And that will add itself and necesary code to the ui dir of the components
-
-And now we have a working light and dark theme!
-
-Now let's set up the database.
-Let's grab some packages. this project wil use prisma.
-
-What is prisma?
-- [Prisma](https://www.prisma.io/) is an ORM for Node.js and Typescript.
-
-`npm i -D prisma`
-`npx prisma init`
-This will add itself to the project, and fill out the env. We need to replace the default database location with our own. We will use [planetscale](https://app.planetscale.com/)
-
-Defined a bunch of models in the prisma schema. Whenever the schema is modified, we need to run:
-`npx prisma generate` to add schema to node modules
-`npx prisma db push` creates the schemas in planetscale/whatever database
-
-now lets install the prisma client
-`npm i @prisma/client`
-
-After doing some setup that will find a user's server or invite them to open a server, we can run `npx prisma studio` to view the current database. Really cool!
-
-Onto server creation. If the user logs in and they aren't a part of any servers, ask them to make one. Display a server creation modal. Grab the modal from shadcn
-- [Dialog](https://ui.shadcn.com/docs/components/dialog)
-- [Input](https://ui.shadcn.com/docs/components/input)
-- [React Hook Form](https://ui.shadcn.com/docs/components/form)
-
-Let's make a new dir to store all our modals
+We'll be using the app router, so follow the set up for that. Create the core.ts file.
