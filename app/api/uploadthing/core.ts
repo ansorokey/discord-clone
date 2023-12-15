@@ -7,7 +7,7 @@ const f = createUploadthing();
 
 // a piece of auth middleware
 const handleAuth = function(){
-    const userId = auth();
+    const {userId} = auth();
     if(!userId) throw new Error("Unauthorized")
     return { userId }
 }

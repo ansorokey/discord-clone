@@ -9,3 +9,6 @@ Check out the getting started guide in the docs. We'll need to install some pack
 The tutorial install include `react-dropzone`, but this is not listed with the current docs, so we'll leave it out for now and come back to it if needed in the future.
 
 We'll be using the app router, so follow the set up for that. Create the core.ts file.
+
+// @TODO
+Create the api route file
