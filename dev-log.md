@@ -1,5 +1,5 @@
 ## Day 3
-
+gi
 Moving on to image uploading.
 We'll be using [uploadthing.com](uploadthing.com) for this project
 
@@ -10,5 +10,35 @@ The tutorial install include `react-dropzone`, but this is not listed with the c
 
 We'll be using the app router, so follow the set up for that. Create the core.ts file.
 
-// @TODO
-Create the api route file
+For the uploadthing component, we created a file and inserted it into the app/lib directory instead of the recommended src/path
+adjusted imports as needed
+
+Trying to test the component but running into an issue where the database cannot query my profile from the database.
+I'm also having issues connecting to github, so my first assumption is an issue with my internet network despite being on phone hotspot.
+
+```
+Unhandled Runtime Error
+Error:
+Invalid `prisma.profile.findUnique()` invocation:
+
+
+Error querying the database: Server error: `ERROR HY000 (1105): unavailable: unable to connect to branch bcat49jjiglg'
+
+Source
+lib/initial-profile.ts (11:20) @ async initialProfile
+
+   9 | }
+  10 |
+> 11 | const profile = await db.profile.findUnique({
+     |                ^
+  12 |     where: {
+  13 |         userId: user.id
+  14 |     }
+Call Stack
+async SetupPage
+app/(setup)/page.tsx (7:20)
+```
+Should everything work correctly, we should now be able to upload something like an image to the upload thing page and see it displayed on the project dashboard
+
+TODO: fix issue with logging in (connec tto server/database)
+TODO: test upload
