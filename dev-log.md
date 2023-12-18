@@ -69,3 +69,7 @@ Creates the server, admin, base channel
 
 At this point, we should be able to test and get a 404 error afterwards, but see the server in the db
 Yep!
+
+The 404 is occuring because the initial profile is fetched or created
+If the profile exists, we direct the user to the first server they're a member of, otherwise we create a server
+So we need to render a page for the current server
