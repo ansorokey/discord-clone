@@ -46,4 +46,26 @@ FIXED: woke up sleeping planetscale db
 TODO: test upload
 FIXED: Uploading image works correctly!
 
-2:08:56
+We now have an image upload and server name!
+Now to make the server in the database using an API
+
+`npx prisma studio` top open up the cool database tool
+
+to make calls in this project, we'll be installing axios
+`npm i axios`
+
+Routes will be set up in the app/api directory
+server routes in the server directory
+
+First, we'll set up a util to check the current profile
+
+We'll also install uuid
+`npm i uuid`
+and
+`npm i -D @types/uuid`
+
+Setting up the post route for the server, which will fire from the intial modal
+Creates the server, admin, base channel
+
+At this point, we should be able to test and get a 404 error afterwards, but see the server in the db
+Yep!
