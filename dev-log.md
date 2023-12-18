@@ -40,5 +40,10 @@ app/(setup)/page.tsx (7:20)
 ```
 Should everything work correctly, we should now be able to upload something like an image to the upload thing page and see it displayed on the project dashboard
 
+TODO: fix github credentials
 TODO: fix issue with logging in (connec tto server/database)
+FIXED: woke up sleeping planetscale db
 TODO: test upload
+FIXED: Uploading image works correctly!
+
+2:08:56
