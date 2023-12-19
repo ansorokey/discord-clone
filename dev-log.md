@@ -88,3 +88,5 @@ and [scroll area](https://ui.shadcn.com/docs/components/scroll-area)
 We now have a nice and pretty looking Navigatgion sidebar, complete with dynamically fetched server icons, a theme toggle button, and the user profile button for signing out.
 
 Now we need to create a modal that allows for server creation when we click the + button on the nav bar.
+We'll install a package called zustand to work with modals
+`npm i zustand`
