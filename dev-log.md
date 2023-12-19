@@ -73,3 +73,14 @@ Yep!
 The 404 is occuring because the initial profile is fetched or created
 If the profile exists, we direct the user to the first server they're a member of, otherwise we create a server
 So we need to render a page for the current server
+
+create the file structure for serverId routes, along with the page to render (just text for now)
+
+Lets install the [tooltip](https://ui.shadcn.com/docs/components/tooltip) component from shadcn
+`npx shadcn-ui@latest add tooltip`
+
+and the [seperator](https://ui.shadcn.com/docs/components/separator)
+`npx shadcn-ui@latest add separator`
+
+and [scroll area](https://ui.shadcn.com/docs/components/scroll-area)
+`npx shadcn-ui@latest add scroll-area`
