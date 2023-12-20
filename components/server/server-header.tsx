@@ -3,7 +3,7 @@
 import { ServerWithMembersWithProfiles } from "@/types";
 import { MemberRole } from "@prisma/client";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { ChevronDown, PlusCircle, Settings, Trash, UserPlus, Users } from "lucide-react";
+import { ChevronDown, LogOut, PlusCircle, Settings, Trash, UserPlus, Users } from "lucide-react";
 
 // Without the custom type we created,
 // trying to access server.members woudl cause an error
@@ -86,12 +86,21 @@ export function ServerHeader({
 
                 {isAdmin && (
                     <DropdownMenuItem
-                    // add rose text below
-                        className="px-3 py-2
+                        className="text-rose 500 px-3 py-2
                         text-sm cursor-pointer"
                     >
                         Delete Server
                         <Trash className="h-4 w-4 ml-auto" />
+                    </DropdownMenuItem>
+                )}
+
+                {!isAdmin && (
+                    <DropdownMenuItem
+                        className="px-3 py-2
+                        text-sm cursor-pointer"
+                    >
+                        Leave Server
+                        <LogOut className="h-4 w-4 ml-auto" />
                     </DropdownMenuItem>
                 )}
             </DropdownMenuContent>
