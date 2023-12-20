@@ -2,6 +2,7 @@
 // use client prevents server side rendering of modals
 
 import { CreateServerModal } from "@/components/modals/create-server-modal";
+import { InviteModal } from "@/components/modals/invite-modal";
 import { useEffect, useState } from "react";
 
 export function ModalProvider() {
@@ -18,7 +19,7 @@ export function ModalProvider() {
 
     return (
         <>
-            <CreateServerModal />
+            <InviteModal />
         </>
     )
 }
