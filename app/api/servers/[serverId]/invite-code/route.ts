@@ -1,3 +1,5 @@
+
+import { v4 as uuidV4 } from "uuid"
 import { currentProfile } from "@/lib/current-profile"
 import { db } from "@/lib/db";
 import { NextResponse } from "next/server"
@@ -23,10 +25,11 @@ export async function PATCH(
                 profileId: profile.id
             },
             data: {
-                // ADD INVITE CODE TO DATA [https://youtu.be/ZbX4Ok9YX94?t=13991]
+                inviteCode: uuidV4(),
             }
         })
 
+        return NextResponse.json(server)
     } catch (error) {
         console.log("[SERVER_ID", error)
         return new NextResponse("Internal Error", { status: 500})
