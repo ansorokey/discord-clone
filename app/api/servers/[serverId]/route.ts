@@ -25,7 +25,7 @@ export async function PATCH (
                 imageUrl
             }
         });
-// 0196-62C4
+
         return NextResponse.json(server);
     } catch (error) {
         console.log("[SERVER_ID PATCH", error);
