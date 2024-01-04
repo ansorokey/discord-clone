@@ -47,6 +47,27 @@ export function MembersModal() {
     // this makes it so typescritp knows we're extracting from this specific type of server
     const { server } = data as { server: ServerWithMembersWithProfiles};
 
+    async function onKick(memberId: string) {
+        try {
+            setLoadingId(memberId);
+            const url = qs.stringifyUrl({
+                url: `/api/members/${memberId}`,
+                query: {
+                    serverId: server?.id
+                }
+            });
+
+            const response = await axios.delete(url);
+
+            router.refresh();
+            onOpen("members", { server: response.data })
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoadingId("")
+        }
+    }
+
     async function onRoleChange(memberId: string, role: MemberRole) {
         try {
             setLoadingId(memberId);
@@ -125,7 +146,9 @@ export function MembersModal() {
                                                     </DropdownMenuPortal>
                                                 </DropdownMenuSub>
                                                 <DropdownMenuSeparator/>
-                                                    <DropdownMenuItem>
+                                                    <DropdownMenuItem
+                                                        onClick={() => onKick(member.id)}
+                                                    >
                                                         <Gavel className='h-4 w-4 mr-2' />
                                                         Kick
                                                     </DropdownMenuItem>
