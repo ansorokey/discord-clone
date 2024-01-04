@@ -53,8 +53,7 @@ export function MembersModal() {
             const url = qs.stringifyUrl({
                 url: `/api/members/${memberId}`,
                 query: {
-                    serverId: server?.id,
-                    memberId
+                    serverId: server?.id
                 }
             })
 

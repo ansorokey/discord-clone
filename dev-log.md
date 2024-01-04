@@ -5,3 +5,6 @@ Onto managing members
 
 installed query-string
 `npm i query-string`
+
+adding query to profile search
+[https://youtu.be/ZbX4Ok9YX94?t=17370]
