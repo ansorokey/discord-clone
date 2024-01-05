@@ -1,2 +1,1 @@
-Onto channel creation
-[https://youtu.be/ZbX4Ok9YX94?t=18247]
+[https://youtu.be/ZbX4Ok9YX94?t=19665]
