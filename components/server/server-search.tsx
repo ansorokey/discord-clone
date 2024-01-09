@@ -1,7 +1,7 @@
 "use client";
 
 import { Search } from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
 
 interface ServerSearchProps {
@@ -20,6 +20,18 @@ export function ServerSearch({
     data
 }: ServerSearchProps) {
     const [open, setOpen] = useState(false);
+
+    useEffect(() => {
+        function down(e: KeyboardEvent) {
+            if(e.key === "k" && (e.metaKey || e.ctrlKey)) {
+                e.preventDefault();
+                setOpen((open) => !open)
+            }
+        }
+
+        document.addEventListener("keydown", down)
+        return () => document.removeEventListener("keydown", down);
+    }, [])
 
     return (
         <>
