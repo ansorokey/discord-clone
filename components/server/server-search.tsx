@@ -24,6 +24,8 @@ export function ServerSearch({
     const router = useRouter();
     const params = useParams();
 
+    // adds event listener to document for the comand/crtl key and 'k'
+    // to open/close search modal
     useEffect(() => {
         function down(e: KeyboardEvent) {
             if(e.key === "k" && (e.metaKey || e.ctrlKey)) {
@@ -33,9 +35,13 @@ export function ServerSearch({
         }
 
         document.addEventListener("keydown", down)
+
+        // return the dismount function
         return () => document.removeEventListener("keydown", down);
     }, []);
 
+
+    // redirect the user to the thing they click on in the search results
     function onClick({id, type}: {id: string, type: 'channel' | 'member'}) {
         setOpen(false);
 
