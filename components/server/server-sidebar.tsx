@@ -1,11 +1,18 @@
-import { currentProfile } from "@/lib/current-profile";
+// Global Imports
 import { db } from "@/lib/db";
+import { currentProfile } from "@/lib/current-profile";
 import { ChannelType, MemberRole } from "@prisma/client";
-import { redirect } from "next/navigation";
-import { ServerHeader } from "./server-header";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { ServerSearch } from "./server-search";
 import { Hash, Mic, ShieldAlert, ShieldCheck, Video } from "lucide-react";
+import { redirect } from "next/navigation";
+
+// Components
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
+
+// Local Components
+import { ServerSearch } from "./server-search";
+import { ServerHeader } from "./server-header";
+import { ServerSection } from "./server-section";
 
 interface ServerSidebarProps {
     serverId: string;
@@ -52,6 +59,7 @@ export async function ServerSidebar({
             }
         }
     });
+
 
     // divide channels up by type
     const textChannels = server?.channels.filter((channel) => channel.type === ChannelType.TEXT);
@@ -115,6 +123,20 @@ export async function ServerSidebar({
                         ]}
                     />
                 </div>
+                <Separator className="bg-zinc-200 dark:bg-zinc-700 rounded-md my-2"/>
+
+                {/* the double bang just turnes the length directly into a boolean,
+                rather than a truthy or falsy value. So this is 'If there is a length and... */}
+                {!!textChannels?.length && (
+                    <div className="mb-2">
+                        <ServerSection
+                            sectionType="channels"
+                            channelType={ChannelType.TEXT}
+                            role={role}
+                            label="Text Channels"
+                        />
+                    </div>
+                )}
             </ScrollArea>
         </div>
     )
