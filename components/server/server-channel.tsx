@@ -12,6 +12,7 @@ interface ServerChannelProps {
     role?: MemberRole;
 }
 
+// these could be refactored so we directly map to the component
 const iconMap = {
     [ChannelType.TEXT]: Hash,
     [ChannelType.AUDIO]: Mic,
