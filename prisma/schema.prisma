@@ -59,6 +59,11 @@ model Member {
   serverId String
   server Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
 
+  messages Message[]
+  directMessages DirectMessage[]
+  conversationsInitiated Conversation[] @relation("MemberOne")
+  conversationsRecieved Conversation[] @relation("MemberTwo")
+
   createdAt DateTime @default(now())
   updatedAT DateTime @updatedAt
 
@@ -83,9 +88,71 @@ model Channel {
   serverId String
   server Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
 
+  messages Message[]
+
   createdAt DateTime @default(now())
   updatedAT DateTime @updatedAt
 
   @@index([serverId])
   @@index([profileId])
+}
+
+model Message {
+  id String @id @default(uuid())
+  content String @db.Text
+
+  fileUrl String? @db.Text
+
+  memberId String
+  member Member @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
+  channelId String
+  channel Channel @relation(fields: [channelId], references: [id], onDelete: Cascade)
+
+  deleted Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([channelId])
+  @@index([memberId])
+}
+
+model Conversation {
+  id String @id @default(uuid())
+
+  memberOneId String
+  memberOne Member @relation("MemberOne", fields: [memberOneId], references: [id], onDelete: Cascade)
+
+  memberTwoId String
+  memberTwo Member @relation("MemberTwo", fields: [memberTwoId], references: [id], onDelete: Cascade)
+
+  directMessages DirectMessage[]
+
+  // @@index([memberOneId]) might not be neccessary
+  @@index([memberTwoId])
+
+  // there can only be one conversation between two people (cant have multiple of the same dm)
+  @@unique([memberOneId, memberTwoId])
+}
+
+model DirectMessage {
+  id String@id @default(uuid())
+  content String @db.Text
+
+  fileUrl String? @db.Text
+
+  memberId String
+  member Member @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
+  conversationId String
+  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  deleted Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([memberId])
+  @@index([conversationId])
 }
