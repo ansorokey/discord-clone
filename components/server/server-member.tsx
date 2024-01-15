@@ -32,6 +32,10 @@ export function ServerMember({
     // here we can render them as their own component
     const icon = roleIconMap[member.role];
 
+    function onClick() {
+        router.push(`/servers/${params?.serverId}/conversations/${member.id}`)
+    }
+
     return (
         <button
             className={cn(
