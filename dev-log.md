@@ -13,3 +13,6 @@ page loads when I remove the sign-in=url portion
 [https://youtu.be/ZbX4Ok9YX94?t=26677]
 Or not? Works perfectly fine on home wifi now.
 Whatever.
+
+when we click on a user, we first need to check if we have a dm open
+otherwise, we need to create one
