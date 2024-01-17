@@ -1,7 +1,7 @@
-chat input
+messages api
 
 start
-[https://youtu.be/ZbX4Ok9YX94?t=30366]
+[https://youtu.be/ZbX4Ok9YX94?t=31197]
 
-left off
-[https://youtu.be/ZbX4Ok9YX94?t=30865]
+current
+[https://youtu.be/ZbX4Ok9YX94?t=31619]
