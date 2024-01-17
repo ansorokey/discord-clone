@@ -1,7 +1,7 @@
-socketIo setup
+chat input
 
 start
-[https://youtu.be/ZbX4Ok9YX94?t=29320]
+[https://youtu.be/ZbX4Ok9YX94?t=30366]
 
-current
-[https://youtu.be/ZbX4Ok9YX94?t=30215]
+left off
+[https://youtu.be/ZbX4Ok9YX94?t=30865]
