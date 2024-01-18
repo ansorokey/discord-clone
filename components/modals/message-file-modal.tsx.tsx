@@ -43,7 +43,7 @@ export function MessageFileModal() {
     const { isOpen, onClose, type, data} = useModal();
     const router = useRouter();
 
-    // pick up here
+    const isModalOpen = isOpen && type === "messageFile";
 
     const form = useForm({
         resolver: zodResolver(formSchema),
@@ -52,6 +52,11 @@ export function MessageFileModal() {
             imageUrl: ''
         }
     });
+
+    function handleClose() {
+        form.reset();
+        onClose();
+    }
 
     const isLoading = form.formState.isSubmitting;
 
@@ -70,7 +75,7 @@ export function MessageFileModal() {
     }
 
     return (
-        <Dialog open={true}>
+        <Dialog open={isModalOpen} onOpenChange={handleClose}>
             <DialogContent className='bg-white text-black p-0 overflow-hidden'>
                 <DialogHeader className='pt-8 px-6'>
                     <DialogTitle className='text-2xl text-center font-bold'>

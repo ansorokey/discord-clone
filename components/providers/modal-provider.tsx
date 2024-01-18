@@ -11,6 +11,7 @@ import { LeaveServerModal } from "@/components/modals/leave-server-modal";
 import { DeleteServerModal } from "@/components/modals/delete-server-modal";
 import { DeleteChannelModal } from "@/components/modals/delete-channel-modal";
 import { EditChannelModal } from "@/components/modals/edit-channel-modal";
+import { MessageFileModal } from "@/components/modals/message-file-modal.tsx";
 
 export function ModalProvider() {
     // The following 3 portions of code prevent hydration errors
@@ -35,6 +36,7 @@ export function ModalProvider() {
             <DeleteServerModal />
             <DeleteChannelModal />
             <EditChannelModal />
+            <MessageFileModal />
         </>
     )
 }
