@@ -7,7 +7,8 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponseServerIo
 ) {
-    if(req.method !== 'post') {
+    if(req.method !== 'POST') {
+        console.log(req.method)
         return res.status(405).json({ error: 'Method Not Allowed'})
     }
 
@@ -61,10 +62,35 @@ export default async function handler(
             return res.status(404).json({ error: 'Channel Not Found'})
         }
 
-        // PICK UP HERE
-        // find the member
-        const member = sever.members.find()
+        const member = server.members.find((member) => member.profileId === profile.id)
 
+        if(!member) {
+            return res.status(404).json({ error: 'Member Not Found'})
+        }
+
+        const message = await db.message.create({
+            data: {
+                content,
+                fileUrl,
+                channelId: channelId as string,
+                memberId: member.id
+            },
+            include: {
+                member: {
+                    include: {
+                        profile: true
+                    }
+                }
+            }
+        });
+
+        // this channel key will be the unique
+        // channel identifier for websockets
+        const channelKey = `chat:${channelId}:messages`;
+
+        res?.socket?.server?.io?.emit(channelKey, message);
+
+        return res.status(200).json(message);
     } catch (error) {
         console.log('[MESSAGES_POST', error)
         return res.status(500).json({message: 'Internal Error'})
