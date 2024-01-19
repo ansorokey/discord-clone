@@ -15,6 +15,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Plus, Smile, SmileIcon } from "lucide-react";
 import { useModal } from "@/hooks/use-modal-store";
+import { EmojiPicker } from "@/components/emoji-picker";
 
 interface ChatInputProps {
     apiUrl: string;
@@ -86,8 +87,7 @@ export const ChatInput = ({
                                         {...field}
                                     />
                                     <div className="absolute top-7 right-8">
-                                        {/* this will be used for emojis later */}
-                                        <Smile />
+                                        <EmojiPicker />
                                     </div>
                                 </div>
                             </FormControl>
