@@ -29,7 +29,7 @@ const formSchema = z.object({
     content: z.string().min(1)
 })
 
-// Component
+// Component begins here
 export const ChatInput = ({
     apiUrl,
     query,
@@ -39,6 +39,7 @@ export const ChatInput = ({
 
     const router = useRouter();
     const { onOpen } = useModal();
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {

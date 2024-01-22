@@ -1,5 +1,2 @@
-adding isModal Open
-[https://youtu.be/ZbX4Ok9YX94?t=31924]
-
-adding qs
-[https://youtu.be/ZbX4Ok9YX94?t=32190]
+starting the messages
+[https://youtu.be/ZbX4Ok9YX94?t=33144]
