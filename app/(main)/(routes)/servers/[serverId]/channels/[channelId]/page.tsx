@@ -51,7 +51,7 @@ async function ChannelIdPage({
                 serverId={channel.serverId}
                 type='channel'
             />
-            <div className="flex-1">
+            {/* <div className="flex-1"> commenting this in pushes everything back to the top */}
                 <ChatMessages
                     member={member}
                     name={channel.name}
@@ -66,7 +66,7 @@ async function ChannelIdPage({
                     paramKey="channelId"
                     paramValue={channel.id}
                 />
-            </div>
+            {/* </div> */}
             <ChatInput
                 name={channel.name}
                 type='channel'
