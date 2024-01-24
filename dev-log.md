@@ -1,8 +1,3 @@
-import image from next/image
-[https://youtu.be/ZbX4Ok9YX94?t=35865]
+reword the delete message modal (copied from another modal)
 
-adding edit message form
-[https://youtu.be/ZbX4Ok9YX94?t=36641]
-
-nbooleans
-[https://youtu.be/ZbX4Ok9YX94?t=37438]
+[https://youtu.be/ZbX4Ok9YX94?t=37925]
