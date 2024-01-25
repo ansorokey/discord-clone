@@ -42,7 +42,7 @@ export function useChatQuery({
         queryKey: [queryKey],
         queryFn: fetchMessages,
         getNextPageParam: (lastPage) => lastPage?.nextCursor,
-        refetchInterval: isConnected ? false : 1000,
+        refetchInterval: isConnected ? false : 1000, // hardcode this to 1000 if we get a websocket error
     });
 
     return {

@@ -7,6 +7,7 @@ import { Loader2, ServerCrash } from "lucide-react";
 import { Fragment } from "react";
 import { ChatItem } from "./chat-item";
 import { format } from "date-fns";
+import { useChatSocket } from "@/hooks/use-chat-socket";
 
 const DATE_FORMAT = "d MMM yyy, HH:mm";
 
@@ -41,6 +42,8 @@ export function ChatMessages({
 }: ChatMessagesProps) {
 
     const queryKey = `chat:${chatId}`;
+    const addKey = `chat:${chatId}:messages`;
+    const updateKey = `chat:${chatId}:messages:update`
 
     const {
         data,
@@ -54,6 +57,7 @@ export function ChatMessages({
         paramKey,
         paramValue
     });
+    useChatSocket({ queryKey, addKey, updateKey});
 
     // in v5, use pending instead of loading
     if(status === "pending") {
