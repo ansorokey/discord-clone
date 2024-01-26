@@ -1,3 +1,5 @@
-create a hook to load messsages in real time
+load older messages on upwards croll
+[https://youtu.be/ZbX4Ok9YX94?t=39339]
 
-[https://youtu.be/ZbX4Ok9YX94?t=38687]
+need to test messages, should automatically scroll down after  a new msg
+[https://youtu.be/ZbX4Ok9YX94?t=40053]
