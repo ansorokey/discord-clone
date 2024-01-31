@@ -1,3 +1,6 @@
+# Project Live Link
+[Click here](https://discord-clone-production-7ea0.up.railway.app/)
+
 # discord-clone
 A fullstack discord clone
 
