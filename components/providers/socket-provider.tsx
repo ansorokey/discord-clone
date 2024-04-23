@@ -32,6 +32,8 @@ export function SocketProvider({
 
     useEffect(() => {
         // that env.url is localhost in dev by default
+        // Which .env variable was this supposed to be??
+        // I dont have this anywhere
         const socketInstance = new (ClientIO as any)(process.env.NEXT_PUBLIC_SITE_URL!, {
             path: '/api/socket/io',
             addTrailingSlash: false
